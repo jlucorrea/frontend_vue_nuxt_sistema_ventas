@@ -1,17 +1,17 @@
 <template>
-<AdminTemplate>
+<AdminTemplate >
 	<div slot="body">
-		<my-producto></my-producto>
+		<!-- <my-producto></my-producto> -->
 	</div>
 </AdminTemplate>
 </template>
 <script>
-import Producto from '../components/Views/Producto.vue';
+// import Producto from '../pages/views/Producto.vue';
 
 export default {
-	components: {
-		'my-producto': Producto
-	},
+	// components: {
+	// 	'my-producto': Producto
+	// },
 	name: 'IndexPage',
 	head() {
 		return {

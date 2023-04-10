@@ -6,3 +6,4 @@ import locale from 'element-ui/lib/locale';
 locale.use(lang);
 // Vue.use(ElementUI);
 Vue.use(ElementUI, { size: 'small' });
+Vue.prototype.$eventHub = new Vue();

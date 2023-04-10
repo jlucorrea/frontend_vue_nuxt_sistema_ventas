@@ -14,87 +14,69 @@
 		<div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a data-bs-toggle="collapse" href="#dashboardsExamples" class="nav-link "
-						aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+					<a href="#dashboardsExamples" class="nav-link" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
 						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
-							<i class="ni ni-istanbul text-lg opacity-10" aria-hidden="true"></i>
+							<i class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
 						</div>
-						<span class="nav-link-text ms-1">Dashboards</span>
+						<span class="nav-link-text ms-1">Principal</span>
 					</a>
-					<div class="collapse " id="dashboardsExamples">
+				</li>
+				<li class="nav-item mt-3">
+					<h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Producto</h6>
+				</li>
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageProducto" class="nav-link " aria-controls="pageProducto"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-tag text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Producto</span>
+					</a>
+					<div class="collapse " id="pageProducto">
 						<ul class="nav ms-4 ps-3">
 							<li class="nav-item ">
-								<a class="nav-link " href="../../pages/dashboards/default.html">
-									<span class="sidenav-mini-icon"> D </span>
-									<span class="sidenav-normal"> Default </span>
-								</a>
+								<nuxt-link to="/views/categoria" class="nav-link" aria-expanded="false">Categoria</nuxt-link>
+							</li>
+							<li class="nav-item ">
+								<nuxt-link to="/views/marca" class="nav-link" aria-expanded="false">Marca</nuxt-link>
+							</li>
+							<li class="nav-item ">
+								<nuxtLink to='/views/medida' class="nav-link" aria-expanded="false">Medida</nuxtLink>
+							</li>
+							<li class="nav-item ">
+								<nuxtLink to='/views/producto' class="nav-link" aria-expanded="false">Producto</nuxtLink>
 							</li>
 						</ul>
 					</div>
 				</li>
-				<li class="nav-item mt-3">
-					<h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>
-				</li>
 				<li class="nav-item">
-					<a data-bs-toggle="collapse" href="#pagesExamples" class="nav-link " aria-controls="pagesExamples"
+					<a data-bs-toggle="collapse" href="#pageCompras" class="nav-link " aria-controls="pageCompras"
 						role="button" aria-expanded="false">
 						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
-							<i class="ni ni-building text-lg opacity-10" aria-hidden="true"></i>
+							<i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
 						</div>
-						<span class="nav-link-text ms-1">Pages</span>
+						<span class="nav-link-text ms-1">Compras</span>
 					</a>
-					<div class="collapse " id="pagesExamples">
+					<div class="collapse " id="pageCompras">
 						<ul class="nav ms-4 ps-3">
 							<li class="nav-item ">
-								<a class="nav-link " data-bs-toggle="collapse" aria-expanded="false"
-									href="#profileExample">
-									<span class="sidenav-mini-icon"> P </span>
-									<span class="sidenav-normal"> Profile <b class="caret"></b></span>
-								</a>
-								<div class="collapse " id="profileExample">
-									<ul class="nav nav-sm flex-column">
-										<li class="nav-item">
-											<a class="nav-link " href="../../pages/pages/profile/overview.html">
-												<span class="sidenav-mini-icon text-xs"> P </span>
-												<span class="sidenav-normal"> Profile Overview </span>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link " href="../../pages/pages/profile/teams.html">
-												<span class="sidenav-mini-icon text-xs"> T </span>
-												<span class="sidenav-normal"> Teams </span>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link " href="../../pages/pages/profile/projects.html">
-												<span class="sidenav-mini-icon text-xs"> A </span>
-												<span class="sidenav-normal"> All Projects </span>
-											</a>
-										</li>
-									</ul>
-								</div>
+								<nuxt-link to="/views/inventario" class="nav-link" aria-expanded="false">Compras</nuxt-link>
 							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageInventario" class="nav-link " aria-controls="pageInventario"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-archive-2 text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Inventario</span>
+					</a>
+					<div class="collapse " id="pageInventario">
+						<ul class="nav ms-4 ps-3">
 							<li class="nav-item ">
-								<a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#usersExample">
-									<span class="sidenav-mini-icon"> U </span>
-									<span class="sidenav-normal"> Users <b class="caret"></b></span>
-								</a>
-								<div class="collapse " id="usersExample">
-									<ul class="nav nav-sm flex-column">
-										<li class="nav-item">
-											<a class="nav-link " href="../../pages/pages/users/reports.html">
-												<span class="sidenav-mini-icon text-xs"> R </span>
-												<span class="sidenav-normal"> Reports </span>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link " href="../../pages/pages/users/new-user.html">
-												<span class="sidenav-mini-icon text-xs"> N </span>
-												<span class="sidenav-normal"> New User </span>
-											</a>
-										</li>
-									</ul>
-								</div>
+								<nuxt-link to="/views/inventario" class="nav-link" aria-expanded="false">Inventario</nuxt-link>
 							</li>
 						</ul>
 					</div>
