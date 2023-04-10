@@ -3,12 +3,12 @@
 	<form class="multisteps-form__form" autocomplete="off" @submit.prevent="submit">
 		<div class="multisteps-form__content">
 			<div class="row">
-				<div class="col-12 col-sm-6">
+				<!-- <div class="col-12 col-sm-6">
 					<label class="">Unidad</label><br>
 					<el-select v-model="form.medida_id" clearable placeholder="Unidades">
 						<el-option v-for="item in medidas" :key="item.id" :label="item.nombre" :value="item.id"></el-option>
   					</el-select>
-				</div>
+				</div> -->
 				<div class="col-12 col-sm-6">
 					<label>Descripción</label>
 					<input class="multisteps-form__input form-control" v-model="form.nombre" type="text" placeholder="Descripción">
@@ -53,7 +53,6 @@
 </template>
 
 <script>
-
 export default {
 	props: ['isModalVisible', 'recordId'],
 	data() {
