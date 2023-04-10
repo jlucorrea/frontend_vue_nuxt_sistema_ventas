@@ -4,6 +4,12 @@
 		<div class="multisteps-form__content">
 			<div class="row">
 				<div class="col-12 col-sm-6">
+					<label class="">Unidad</label><br>
+					<el-select v-model="form.medida_id" clearable placeholder="Unidades">
+						<el-option v-for="item in medidas" :key="item.id" :label="item.nombre" :value="item.id"></el-option>
+  					</el-select>
+				</div>
+				<div class="col-12 col-sm-6">
 					<label>Descripción</label>
 					<input class="multisteps-form__input form-control" v-model="form.nombre" type="text" placeholder="Descripción">
 					<small class="text-danger" v-if="errors.nombre" v-text="errors.nombre[0]"></small>
@@ -27,7 +33,13 @@
 				<div class="col-12 col-sm-6">
 					<label class="">Categorias</label><br>
 					<el-select v-model="form.categoria_id" clearable placeholder="Categorias">
-						<el-option v-for="item in options" :key="item.id" :label="item.nombre" :value="item.id"></el-option>
+						<el-option v-for="item in categorias" :key="item.id" :label="item.nombre" :value="item.id"></el-option>
+  					</el-select>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label class="">Marcas</label><br>
+					<el-select v-model="form.marca_id" clearable placeholder="Marcas">
+						<el-option v-for="item in marcas" :key="item.id" :label="item.nombre" :value="item.id"></el-option>
   					</el-select>
 				</div>
 			</div>
@@ -50,10 +62,9 @@ export default {
 			resource: 'articulos',
 			errors: {},
 			form: {},
-			options:[
-				{id: 1, nombre: 'Abarrotes'},
-				{id: 2, nombre: 'Arinas'}
-			]
+			categorias:[],
+			marcas: [],
+			medidas: []
 		}
 	},
 	created() {
@@ -75,11 +86,23 @@ export default {
 				categoria_id: null
 			}
 		},
-		getTable(){
-			// this.$api.$get(`/${this.resource}/tables`)
-			// .then(response => {
-			// 	console.log(response);
-			// })
+		async GET_DATA(path) {
+			const apiData = await this.$api.$get(path);
+			return apiData;
+		},
+		async getTable(){
+			this.$nextTick(async () => {
+				try {
+					await Promise.all([this.GET_DATA('categorias'),this.GET_DATA('marcas'),this.GET_DATA('medidas')])
+					.then(response => {
+						this.categorias = response[0].data;
+						this.marcas = response[1].data;
+						this.medidas = response[2].data;
+					});
+				} catch (error) {
+					console.log(error);
+				}
+			});
 		},
 		create() {
 			this.titleDialog = (this.recordId)? 'Editar Producto':'Nuevo Producto';
@@ -96,6 +119,7 @@ export default {
 				.then(response => {
 			        if (response.success) {
 			            this.$message.success(response.message)
+						this.$eventHub.$emit('reloadData')
 			            this.close()
 			        } else {
 			            this.$message.error(response.message)
