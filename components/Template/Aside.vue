@@ -60,7 +60,7 @@
 					<div class="collapse " id="pageCompras">
 						<ul class="nav ms-4 ps-3">
 							<li class="nav-item ">
-								<nuxt-link to="/views/inventario" class="nav-link" aria-expanded="false">Compras</nuxt-link>
+								<nuxt-link to="/views/compras" class="nav-link" aria-expanded="false">Nueva compra</nuxt-link>
 							</li>
 						</ul>
 					</div>
