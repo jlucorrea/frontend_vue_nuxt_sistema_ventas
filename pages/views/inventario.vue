@@ -98,7 +98,6 @@ export default {
 					await Promise.all([this.GET_DATA(this.resource)])
 					.then(response => {
 						this.records = response[0].data;
-						console.log(response);
 					});
 				} catch (error) {
 					console.log(error);
