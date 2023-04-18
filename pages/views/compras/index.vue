@@ -103,11 +103,6 @@
 						<div class="card-body text-center p-3">
 							<div class="d-flex align-items-center px-2">
 								<h6>CARRITO</h6>
-								<!-- <button type="button"
-									class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto"
-									data-bs-toggle="tooltip" data-bs-placement="bottom">
-									<i class="fas fa-trash" aria-hidden="true"></i>
-								</button> -->
 							</div>
 							<div class="table-responsive p-0" style="min-height: 30vh" v-if="form.items.length>0">
 								<table class="table align-items-center justify-content-center mb-0">
