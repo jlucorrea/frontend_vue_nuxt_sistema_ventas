@@ -62,6 +62,9 @@
 							<li class="nav-item ">
 								<nuxt-link to="/views/compras" class="nav-link" aria-expanded="false">Nueva compra</nuxt-link>
 							</li>
+							<li class="nav-item ">
+								<nuxt-link to="/views/compras/lista" class="nav-link" aria-expanded="false">Compras</nuxt-link>
+							</li>
 						</ul>
 					</div>
 				</li>
