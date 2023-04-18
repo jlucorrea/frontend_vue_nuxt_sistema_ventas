@@ -8,7 +8,7 @@
 					<input class="multisteps-form__input form-control" v-model="newForm.nombre" type="text" placeholder="Nombre">
 				</div>
 				<div class="col-12 col-sm-6 mt-3 mt-sm-0">
-					<label>Total</label>
+					<label>Cantidad</label>
 					<input class="multisteps-form__input form-control" v-model="newForm.cantidad" type="text" placeholder="P. Compra">
 				</div>
 				<div class="col-12 col-sm-6 mt-3 mt-sm-0">

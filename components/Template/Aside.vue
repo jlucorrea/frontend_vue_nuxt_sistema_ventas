@@ -69,6 +69,25 @@
 					</div>
 				</li>
 				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageVentas" class="nav-link " aria-controls="pageVentas"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-bag-17 text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Ventas</span>
+					</a>
+					<div class="collapse " id="pageVentas">
+						<ul class="nav ms-4 ps-3">
+							<li class="nav-item ">
+								<nuxt-link to="/views/ventas/create" class="nav-link" aria-expanded="false">Nueva Venta</nuxt-link>
+							</li>
+							<li class="nav-item ">
+								<nuxt-link to="/views/ventas" class="nav-link" aria-expanded="false">Ventas</nuxt-link>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageInventario" class="nav-link " aria-controls="pageInventario"
 						role="button" aria-expanded="false">
 						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
