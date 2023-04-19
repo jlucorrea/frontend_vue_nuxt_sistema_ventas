@@ -12,7 +12,7 @@ export const deletetable = {
 					this.$api.$post(url,{ '_method': 'DELETE'})
 					.then(res => {
 						if(res.success) {
-							this.$message.success('Se eliminó correctamente el registro')
+							this.$message.success(res.message)
 							resolve()
 						}
 					}).catch(error => {

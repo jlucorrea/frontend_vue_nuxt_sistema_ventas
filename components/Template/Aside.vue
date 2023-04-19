@@ -103,6 +103,23 @@
 						</ul>
 					</div>
 				</li>
+
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageSucursal" class="nav-link " aria-controls="pageSucursal"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-building text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Sucursal</span>
+					</a>
+					<div class="collapse " id="pageSucursal">
+						<ul class="nav ms-4 ps-3">
+							<li class="nav-item ">
+								<nuxt-link to="/views/sucursal" class="nav-link" aria-expanded="false">Sucursal</nuxt-link>
+							</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</aside>
