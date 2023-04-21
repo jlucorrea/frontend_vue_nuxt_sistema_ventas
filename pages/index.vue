@@ -1,17 +1,12 @@
 <template>
 <AdminTemplate >
 	<div slot="body">
-		<!-- <my-producto></my-producto> -->
+		<!-- {{ user }} -->
 	</div>
 </AdminTemplate>
 </template>
 <script>
-// import Producto from '../pages/views/Producto.vue';
-
 export default {
-	// components: {
-	// 	'my-producto': Producto
-	// },
 	name: 'IndexPage',
 	head() {
 		return {
@@ -20,14 +15,14 @@ export default {
 	},
 	data() {
 		return {
-			
+			user: {}
 		}
 	},
-	methods: {
-		
-	},
 	mounted() {
-		
+		this.$nextTick(() => {
+			let user = localStorage.getItem('userAuth');
+			this.user = JSON.parse(user);
+		})
 	}
 }
 </script>
