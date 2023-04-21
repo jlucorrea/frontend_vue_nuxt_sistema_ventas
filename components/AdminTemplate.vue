@@ -11,7 +11,16 @@
   </div>
 </template>
 <script>
-	export default {
-		name: 'AdminTemplate'
+export default {
+	name: 'AdminTemplate',
+	mounted(){
+		let user = localStorage.getItem('userAuth');
+		if(user==null){
+			this.$router.push('/auth/login');
+		}
+		this.$nextTick(() => {
+		// this.user = JSON.parse(user);
+		})
 	}
+}
 </script>

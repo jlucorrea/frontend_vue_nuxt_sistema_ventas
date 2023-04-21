@@ -50,6 +50,22 @@
 					</div>
 				</li>
 				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageCaja" class="nav-link " aria-controls="pageCaja"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-box-2 text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Cajas</span>
+					</a>
+					<div class="collapse " id="pageCaja">
+						<ul class="nav ms-4 ps-3">
+							<li class="nav-item ">
+								<nuxt-link to="/views/cajas/caja" class="nav-link" aria-expanded="false">Caja</nuxt-link>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageCompras" class="nav-link " aria-controls="pageCompras"
 						role="button" aria-expanded="false">
 						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
@@ -88,6 +104,22 @@
 					</div>
 				</li>
 				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#pageUser" class="nav-link " aria-controls="pageUser"
+						role="button" aria-expanded="false">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+							<i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
+						</div>
+						<span class="nav-link-text ms-1">Usuarios</span>
+					</a>
+					<div class="collapse " id="pageUser">
+						<ul class="nav ms-4 ps-3">
+							<li class="nav-item ">
+								<nuxt-link to="/views/usuarios" class="nav-link" aria-expanded="false">Usuario</nuxt-link>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageInventario" class="nav-link " aria-controls="pageInventario"
 						role="button" aria-expanded="false">
 						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
@@ -103,7 +135,6 @@
 						</ul>
 					</div>
 				</li>
-
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageSucursal" class="nav-link " aria-controls="pageSucursal"
 						role="button" aria-expanded="false">
@@ -124,8 +155,3 @@
 		</div>
 	</aside>
 </template>
-<script>
-	export default{
-		name: 'BaseAside'
-	}
-</script>
