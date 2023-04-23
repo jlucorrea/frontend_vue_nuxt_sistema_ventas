@@ -1,7 +1,12 @@
 <template>
 	<AdminTemplate>
 		<div slot="body">
-			<div class="row justify-content-end">
+			<div class="alert alert-warning text-center font-weight-bold" role="alert" v-if="!user.caja">
+				<div class="text-white">
+					<nuxt-link to="/views/cajas/caja" class="btn btn-sm text-white">Aperturar Caja</nuxt-link>
+				</div>
+			</div>
+			<div class="row justify-content-end" v-else>
 				<div class="col-12 col-sm-7">
 					<div class="d-lg-flex">
 						<div>
@@ -141,7 +146,7 @@
 									</tbody>
 								</table>
 							</div>
-							<button class="btn bg-gradient-dark w-100 mt-4 mb-0" @click="savePurchase()">
+							<button class="btn bg-gradient-dark w-100 mt-4 mb-0" @click="saveSales()">
 								<i class="fas fa-save mx-2"></i> GUARDAR
 							</button>
 						</div>
@@ -223,16 +228,29 @@ export default {
 				total_value: 0,
 				total: 0,
 				items: [],
-			}
+				caja_id: null
+			},
+			user:{}
 		}
-	},
-	created() {
-		
 	},
 	methods: {
 		async GET_DATA(path) {
 			const apiData = await this.$api.$get(path);
 			return apiData;
+		},
+		async getCaja(){
+			try {
+				await this.$api.$get(`cajas/record/`+ this.user.id)
+				.then((response) => {
+					if (response) {
+						this.user.caja = response;
+					} else {
+						console.log("La respuesta no contiene datos");
+					}
+				})
+			} catch (error) {
+				console.log(error);
+			}
 		},
 		async getData(){
 			try {
@@ -309,8 +327,9 @@ export default {
             this.form.total_value = parseFloat(total_value).toFixed(2)
 			this.form.total = parseFloat(total).toFixed(2)
 		},
-		async savePurchase() {
+		async saveSales() {
 			try {
+				this.form.caja_id = this.user.caja.id;
 				await this.$api.$post(this.resource, this.form)
 					.then(response => {
 						if (response.success) {
@@ -367,9 +386,13 @@ export default {
 		}
 	},
 	mounted(){
+		let user = localStorage.getItem('userAuth');
+		this.user = JSON.parse(user);
+		console.log(this.user)
 		this.$nextTick(async () => {
 			try{
 				this.getData();
+				this.getCaja();
 			} catch(error){
 				console.log(error);
 			}

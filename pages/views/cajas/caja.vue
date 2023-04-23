@@ -8,10 +8,12 @@
 							<div class="card h-100 mt-4 mt-md-0">
 								<div class="card-header pb-0 p-3">
 									<div class="d-flex align-items-center">
-										<h6>Pages</h6>
-										<button type="button" @click.prevent="openModal()"
-											class="btn btn-icon-only btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto">
+										<h6>Movimientos</h6>
+										<button v-if="caja.estado == 1" type="button" @click.prevent="openModal(caja.id)" class="btn btn-icon-only btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto">
 											<i class="fas fa-check" aria-hidden="true"></i>
+										</button>
+										<button v-else type="button" @click.prevent="openModalApertura(user)" class="btn btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto">
+											Aperturar
 										</button>
 									</div>
 								</div>
@@ -20,50 +22,27 @@
 										<table class="table align-items-center justify-content-center mb-0">
 											<thead>
 												<tr>
-													<th
-														class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-														Page
-													</th>
-													<th
-														class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-														Page Views
-													</th>
-													<th
-														class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-														Avg. Time
-													</th>
-													<th
-														class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-														Bounce Rate
-													</th>
+													<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> # </th>
+													<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Motivo </th>
+													<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Monto </th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
+											<tbody v-if="caja.cajamovimiento.length > 0">
+												<tr v-for="(row, index) in caja.cajamovimiento">
 													<td>
-														<p class="text-sm font-weight-bold mb-0">
-															1. /bits
-														</p>
+														<p class="text-sm font-weight-bold mb-0">{{ index + 1 }}</p>
 													</td>
 													<td>
-														<p class="text-sm font-weight-bold mb-0">345</p>
+														<p class="text-sm font-weight-bold mb-0">{{ row.motivo }}</p>
 													</td>
 													<td>
-														<p class="text-sm font-weight-bold mb-0">
-															00:17:07
-														</p>
-													</td>
-													<td>
-														<p class="text-sm font-weight-bold mb-0">
-															40.91%
-														</p>
+														<p class="text-sm font-weight-bold mb-0" v-if="row.tipo==1">{{ row.monto }}</p>
+														<p class="text-sm text-danger font-weight-bold mb-0" v-else> - {{ row.monto }}</p>
 													</td>
 												</tr>
-
 											</tbody>
 										</table>
 									</div>
-									{{ this.caja }}
 								</div>
 							</div>
 						</div>
@@ -73,7 +52,7 @@
 					<div class="card card-pricing">
 						<div class="card-header bg-gradient-dark text-center pt-4 pb-5 position-relative">
 							<div class="z-index-1 position-relative">
-								<h1 class="text-white mt-2 mb-0"><small></small>0</h1>
+								<h1 class="text-white mt-2 mb-0"><small></small>S/ {{ Number(caja.total).toFixed(2) }}</h1>
 								<h6 class="text-white">Total</h6>
 							</div>
 						</div>
@@ -132,9 +111,8 @@
 											</svg>
 										</div>
 										<div class="d-flex flex-column">
-											<h6 class="mb-1 text-dark text-sm">Devices</h6>
-											<span class="text-xs">250 in stock,
-												<span class="font-weight-bold">346+ sold</span></span>
+											<h6 class="mb-1 text-dark text-sm">Ingresos</h6>
+											<span class="text-xs">S/ {{ Number(caja.ingresos).toFixed(2) }}</span>
 										</div>
 									</div>
 									<div class="d-flex">
@@ -144,8 +122,7 @@
 										</button>
 									</div>
 								</li>
-								<li
-									class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+								<li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
 									<div class="d-flex align-items-center">
 										<div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
 											<svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
@@ -173,9 +150,8 @@
 											</svg>
 										</div>
 										<div class="d-flex flex-column">
-											<h6 class="mb-1 text-dark text-sm">Tickets</h6>
-											<span class="text-xs">123 closed,
-												<span class="font-weight-bold">15 open</span></span>
+											<h6 class="mb-1 text-dark text-sm">Salidas</h6>
+											<span class="text-xs">S/ {{ Number(caja.salidas).toFixed(2) }}</span>
 										</div>
 									</div>
 									<div class="d-flex">
@@ -185,8 +161,7 @@
 										</button>
 									</div>
 								</li>
-								<li
-									class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+								<li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
 									<div class="d-flex align-items-center">
 										<div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
 											<svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -214,9 +189,8 @@
 											</svg>
 										</div>
 										<div class="d-flex flex-column">
-											<h6 class="mb-1 text-dark text-sm">Error logs</h6>
-											<span class="text-xs">1 is active,
-												<span class="font-weight-bold">40 closed</span></span>
+											<h6 class="mb-1 text-dark text-sm">Ventas</h6>
+											<span class="text-xs">S/ {{ Number(caja.ventas).toFixed(2) }}</span>
 										</div>
 									</div>
 									<div class="d-flex">
@@ -254,8 +228,8 @@
 											</svg>
 										</div>
 										<div class="d-flex flex-column">
-											<h6 class="mb-1 text-dark text-sm">Happy users</h6>
-											<span class="text-xs font-weight-bold">+ 430</span>
+											<h6 class="mb-1 text-dark text-sm">Compras</h6>
+											<span class="text-xs font-weight-bold">S/ {{ Number(caja.compras).toFixed(2) }}</span>
 										</div>
 									</div>
 									<div class="d-flex">
@@ -266,13 +240,14 @@
 									</div>
 								</li>
 							</ul>
-							<a href="javascript:void(0);" class="btn bg-gradient-dark w-100 mt-4 mb-0" @click="Save()">
-								<i class="fas fa-save mx-2"></i> GUARDAR
+							<a v-if="caja.estado == 1" href="javascript:void(0);" class="btn bg-gradient-dark w-100 mt-4 mb-0" @click="Save(caja.id)">
+								<i class="fas fa-save mx-2"></i> Cerrar Caja
 							</a>
 						</div>
 					</div>
 				</div>
-				<ModalsMovimientoCaja :formulario="form" :is-modal-visible.sync="isModalVisible"></ModalsMovimientoCaja>
+				<ModalsMovimientoCaja :is-modal-visible.sync="isModalVisible" :cajaId="cajaId"></ModalsMovimientoCaja>
+				<ModalsAperturaCaja :is-modal-apertura.sync="isModalApertura" :formUser="formUser"></ModalsAperturaCaja>
 			</div>
 		</div>
 	</AdminTemplate>
@@ -289,42 +264,79 @@ export default {
 		return {
 			resource: 'cajas',
 			user: {},
-			caja: {},
-			form: {},
-			isModalVisible: false
+			caja: {
+				ingresos: 0,
+				salidas: 0,
+				compras: 0,
+				ventas: 0,
+				total: 0,
+				cajamovimiento: {}
+			},
+			cajaId: null,
+			userId: null,
+			isModalVisible: false,
+			isModalApertura: false,
+			formUser: {}
 		};
 	},
-	computed: {
-
+	created(){
+		this.$eventHub.$on('reloadData', () => {
+			this.getData()
+		});
 	},
 	methods: {
 		async GET_DATA(path) {
 			const apiData = await this.$api.$get(path);
 			return apiData;
 		},
-		openModal(param = null) {
-			const formData = param ? { ...formData } : {};
-			this.form = formData
+		openModal(id) {
+			this.cajaId = id;
 			this.isModalVisible = true;
+		},
+		openModalApertura(param) {
+			const formData = param ? { ...param } : {};
+			this.formUser = formData;
+			this.isModalApertura = true;
+		},
+		async getData(){
+			try {
+				await this.$api.$get(`/${this.resource}/recordcaja/`+ this.user.id)
+				.then((response) => {
+					if (response.data) {
+						this.caja = response.data;
+					} else {
+						console.log("La respuesta no contiene datos");
+					}
+				})
+			} catch (error) {
+				console.log(error);
+			}
+		},
+		async Save(id){
+			try {
+				let formData = {
+					id: id,
+					user_id: this.user.id
+				};
+				let res = await this.$api.$post(`/${this.resource}`,formData);
+				this.$message.success(res.message);
+				this.$eventHub.$emit('reloadData');
+				location.reload();
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	},
 	mounted() {
 		let user = localStorage.getItem('userAuth');
 		this.user = JSON.parse(user);
 		this.$nextTick(async () => {
-			await Promise.all([this.GET_DATA('cajas/' + this.user.caja.id)])
-				.then((response) => {
-					this.caja = response[0]
-					console.log(response[0]);
-				})
+			try{
+				this.getData();
+			} catch(error){
+				console.log(error);
+			}
 		});
 	},
 };
 </script>
-<style>
-.showModal {
-	visibility: visible;
-	display: block;
-	opacity: 1 !important;
-}
-</style>  
