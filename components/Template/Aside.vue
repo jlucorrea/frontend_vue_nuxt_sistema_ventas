@@ -1,33 +1,28 @@
 <template>
-	<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
+	<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 ps ps--active-y"
 		id="sidenav-main">
 		<div class="sidenav-header">
 			<i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
 				aria-hidden="true" id="iconSidenav"></i>
-			<a class="navbar-brand m-0"
-				href=" https://demos.creative-tim.com/soft-ui-dashboard-pro/pages/dashboards/default.html "
-				target="_blank">
+			<nuxt-link to="/" class="navbar-brand m-0">
 				<span class="ms-1 font-weight-bold">Facturacion POS</span>
-			</a>
+			</nuxt-link>
 		</div>
 		<hr class="horizontal dark mt-0">
 		<div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a href="#dashboardsExamples" class="nav-link" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
-							<i class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
+					<nuxt-link to="/" class="nav-link">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
+							<i width="12px" height="12px" class="ni ni-app text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Principal</span>
-					</a>
-				</li>
-				<li class="nav-item mt-3">
-					<h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Producto</h6>
+					</nuxt-link>
 				</li>
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageProducto" class="nav-link " aria-controls="pageProducto"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-tag text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Producto</span>
@@ -52,7 +47,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageCaja" class="nav-link " aria-controls="pageCaja"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-box-2 text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Cajas</span>
@@ -71,7 +66,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageCompras" class="nav-link " aria-controls="pageCompras"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Compras</span>
@@ -90,7 +85,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageVentas" class="nav-link " aria-controls="pageVentas"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-bag-17 text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Ventas</span>
@@ -109,7 +104,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageUser" class="nav-link " aria-controls="pageUser"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Usuarios</span>
@@ -125,7 +120,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageInventario" class="nav-link " aria-controls="pageInventario"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-archive-2 text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Inventario</span>
@@ -141,7 +136,7 @@
 				<li class="nav-item">
 					<a data-bs-toggle="collapse" href="#pageSucursal" class="nav-link " aria-controls="pageSucursal"
 						role="button" aria-expanded="false">
-						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center  me-2">
+						<div class="icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
 							<i class="ni ni-building text-lg opacity-10" aria-hidden="true"></i>
 						</div>
 						<span class="nav-link-text ms-1">Sucursal</span>

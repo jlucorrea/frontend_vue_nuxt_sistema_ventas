@@ -3,11 +3,16 @@
 		<div slot="body">
 			<div class="alert alert-warning text-center font-weight-bold" role="alert" v-if="!user.caja">
 				<div class="text-white">
-					<nuxt-link to="/views/cajas/caja" class="btn btn-sm text-white">Aperturar Caja</nuxt-link>
+					<nuxt-link to="/views/cajas/lista" class="btn btn-sm text-white">Aperturar Caja</nuxt-link>
 				</div>
 			</div>
 			<div class="row justify-content-end" v-else>
 				<div class="col-12 col-sm-7">
+					<div class="d-lg-flex">
+						<div>
+							<h5 class="mb-3">Nueva Compra</h5>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-12">
 							<div class="card bg-gradient-dark">

@@ -3,7 +3,7 @@
 		<div slot="body">
 			<div class="alert alert-warning text-center font-weight-bold" role="alert" v-if="!user.caja">
 				<div class="text-white">
-					<nuxt-link to="/views/cajas/caja" class="btn btn-sm text-white">Aperturar Caja</nuxt-link>
+					<nuxt-link to="/views/cajas/lista" class="btn btn-sm text-white">Aperturar Caja</nuxt-link>
 				</div>
 			</div>
 			<div class="row justify-content-end" v-else>

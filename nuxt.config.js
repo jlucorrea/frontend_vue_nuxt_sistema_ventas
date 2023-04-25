@@ -1,5 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
   head: {
     title: 'facturacion_frontend',
     htmlAttrs: {
@@ -30,7 +31,6 @@ export default {
 		{src:"/assets/js/plugins/chartjs.min.js"}
 	]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
 	// '@/assets/css/main.css'	
