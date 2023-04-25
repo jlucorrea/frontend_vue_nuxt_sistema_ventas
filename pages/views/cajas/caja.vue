@@ -12,9 +12,6 @@
 										<button v-if="caja.estado == 1" type="button" @click.prevent="openModal(caja.id)" class="btn btn-icon-only btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto">
 											<i class="fas fa-check" aria-hidden="true"></i>
 										</button>
-										<button v-else type="button" @click.prevent="openModalApertura(user)" class="btn btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto">
-											Aperturar
-										</button>
 									</div>
 								</div>
 								<div class="card-body px-3 pt-0 pb-2">
@@ -247,7 +244,6 @@
 					</div>
 				</div>
 				<ModalsMovimientoCaja :is-modal-visible.sync="isModalVisible" :cajaId="cajaId"></ModalsMovimientoCaja>
-				<ModalsAperturaCaja :is-modal-apertura.sync="isModalApertura" :formUser="formUser"></ModalsAperturaCaja>
 			</div>
 		</div>
 	</AdminTemplate>
@@ -273,10 +269,7 @@ export default {
 				cajamovimiento: {}
 			},
 			cajaId: null,
-			userId: null,
 			isModalVisible: false,
-			isModalApertura: false,
-			formUser: {}
 		};
 	},
 	created(){
@@ -292,11 +285,6 @@ export default {
 		openModal(id) {
 			this.cajaId = id;
 			this.isModalVisible = true;
-		},
-		openModalApertura(param) {
-			const formData = param ? { ...param } : {};
-			this.formUser = formData;
-			this.isModalApertura = true;
 		},
 		async getData(){
 			try {
@@ -320,8 +308,7 @@ export default {
 				};
 				let res = await this.$api.$post(`/${this.resource}`,formData);
 				this.$message.success(res.message);
-				this.$eventHub.$emit('reloadData');
-				location.reload();
+				this.$router.push('lista');
 			} catch (error) {
 				console.log(error);
 			}

@@ -14,6 +14,8 @@ export const deletetable = {
 						if(res.success) {
 							this.$message.success(res.message)
 							resolve()
+						}else{
+							this.$message.error(res.message)
 						}
 					}).catch(error => {
 						if (error) {

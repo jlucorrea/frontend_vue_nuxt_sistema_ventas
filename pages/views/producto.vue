@@ -71,6 +71,9 @@
 													<a href="javascript:;" @click.prevent="openModal(row.id)" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editar producto">
 														<i class="fas fa-edit text-secondary" aria-hidden="true"></i>
 													</a>
+													<nuxt-link :to="url_image + row.id" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Editar producto">
+														<i class="fas fa-image text-secondary" aria-hidden="true"></i>
+													</nuxt-link>
 													<a href="javascript:;" data-bs-toggle="tooltip" @click="Delete(row.id)" data-bs-original-title="Eliminar producto">
 														<i class="fas fa-trash text-secondary" aria-hidden="true"></i>
 													</a>
@@ -84,15 +87,13 @@
 				</div>
 				</div>
 			</div>
-			<modal-product :isModalVisible.sync="isModalVisible" :recordId="recordId"></modal-product>
+			<ModalsNewProduct :isModalVisible.sync="isModalVisible" :recordId="recordId"></ModalsNewProduct>
 		</div>
 	</div>
 </AdminTemplate >
 </template>
 <script>
 import { deletetable } from "../../plugins/deletetable.js"
-
-import ModalProduct from '../../components/Modals/NewProduct.vue'
 
 export default {
 	name: 'IndexPage',
@@ -102,11 +103,11 @@ export default {
 		}
 	},
 	mixins: [deletetable],
-	components: {ModalProduct},
 	data() {
 		return {
 			resource: 'articulos',
 			records: [],
+			url_image: "/views/image/",
 			isModalVisible: false,
 			recordId: null
 		}
