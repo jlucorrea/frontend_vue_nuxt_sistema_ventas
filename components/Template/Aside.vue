@@ -62,6 +62,9 @@
 							<li class="nav-item ">
 								<nuxt-link to="/views/cajas/caja" class="nav-link" aria-expanded="false">Caja</nuxt-link>
 							</li>
+							<li class="nav-item ">
+								<nuxt-link to="/views/cajas/lista" class="nav-link" aria-expanded="false">Lista</nuxt-link>
+							</li>
 						</ul>
 					</div>
 				</li>

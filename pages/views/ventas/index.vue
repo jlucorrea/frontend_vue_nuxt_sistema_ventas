@@ -11,7 +11,7 @@
 								</div>
 								<div class="ms-auto my-auto mt-lg-0 mt-4">
 									<div class="ms-auto my-auto">
-										<nuxt-link to="/views/compras" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp; Venta</nuxt-link>
+										<nuxt-link to="/views/ventas/create" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp; Venta</nuxt-link>
 									</div>
 								</div>
 							</div>
@@ -90,7 +90,6 @@ import { deletetable } from '../../../plugins/deletetable';
 					await Promise.all([this.GET_DATA(this.resource)])
 					.then((response) =>{
 						this.records = response[0];
-						console.log(response)
 					})
 				} catch (error) {
 					console.log(error);

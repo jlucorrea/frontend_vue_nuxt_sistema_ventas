@@ -37,6 +37,11 @@
 												</select>
 											</div>
 										</div>
+										<div class="d-flex mb-3">
+											<div class="form form-check form-switch ms-auto">
+												<input v-model="image" class="form-check-input" checked="" type="checkbox">
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -44,7 +49,8 @@
 						<div class="col-12 py-2" style="min-height: 60vh;max-height: 60vh; overflow-y: scroll; overflow-x: none;">
 							<div class="row">
 								<div class="col-3" v-for="item in articuloCategoria">
-									<PosArticuloVenta :articulo="item" @AddArt="AddArt"></PosArticuloVenta>
+									<PosArticuloVenta v-if="image==true" :articulo="item" @AddArt="AddArt"></PosArticuloVenta>
+									<PosArticuloVentaImage v-else :articulo="item" @AddArt="AddArt"></PosArticuloVentaImage>
 								</div>
 							</div>
 						</div>
@@ -210,6 +216,7 @@ export default {
 			buscar: '',
 			marca: 'all',
 			categoria: 'all',
+			image: true,
 			newForm: {
 				id: '',
 				nombre: '',
@@ -388,7 +395,6 @@ export default {
 	mounted(){
 		let user = localStorage.getItem('userAuth');
 		this.user = JSON.parse(user);
-		console.log(this.user)
 		this.$nextTick(async () => {
 			try{
 				this.getData();

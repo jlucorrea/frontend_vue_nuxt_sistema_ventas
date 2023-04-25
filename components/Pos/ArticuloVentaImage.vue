@@ -1,7 +1,10 @@
 <template>
 	<div class="card p-0" @click="AddArt">
 		<div class="card-header mx-4 mt-2 p-1 text-center">
-			<div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+			<div class="avatar" v-if="articulo.image">
+				<img :src="articulo.image" alt="image" class="border-radius-lg shadow">
+			</div>
+			<div v-else class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
 				<i class="fas fa-archive opacity-10" aria-hidden="true"></i>
 			</div>
 		</div>

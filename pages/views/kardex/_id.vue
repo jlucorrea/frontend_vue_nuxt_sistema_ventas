@@ -142,24 +142,25 @@ export default {
 		this.$eventHub.$on('reloadData', () => {
 			this.getData()
 		});
-		this.getData();
+	},
+	mounted(){
+		this.$nextTick(async () => {
+			try {
+				this.getData();
+			} catch (error) {
+				console.log(error);
+			}
+		});
 	},
 	methods: {
 		async GET_DATA(path) {
 			const apiData = await this.$api.$get(path);
 			return apiData;
 		},
-		getData(){
-			this.$nextTick(async () => {
-				try {
-					await Promise.all([this.GET_DATA('inventarios/kardex/' + this.$route.params.id)])
-					.then((response) => {
-						this.itemInventory = response[0].data;
-						this.$eventHub.$emit('reloadData')
-					});
-				} catch (error) {
-					console.log(error);
-				}
+		async getData(){
+			await Promise.all([this.GET_DATA('inventarios/kardex/' + this.$route.params.id)])
+			.then((response) => {
+				this.itemInventory = response[0].data;
 			});
 		},
 		openModal(id) {
@@ -172,7 +173,7 @@ export default {
 		Delete(id){
 			this.destroy(`/${this.resource}/${id}`)
 			.then(() =>
-				this.$eventHub.$emit('reloadData')
+				this.getData()
 			)
 		}
 	}
