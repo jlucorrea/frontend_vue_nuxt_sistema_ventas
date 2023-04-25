@@ -10,8 +10,8 @@
 									<h5 class="mb-0">Cajas</h5>
 								</div>
 								<div class="ms-auto my-auto mt-lg-0 mt-4">
-									<div class="ms-auto my-auto" v-if="!user.caja">
-										<a @click.prevent="openModal(user)" class="btn bg-gradient-primary btn-sm mb-0" target="_blank">+&nbsp; Aperturas Caja</a>
+									<div class="ms-auto my-auto" v-if="user.caja==null">
+										<a @click.prevent="openModal(user)" class="btn bg-gradient-primary btn-sm mb-0" target="_blank">+&nbsp; Aperturar Caja</a>
 									</div>
 								</div>
 							</div>

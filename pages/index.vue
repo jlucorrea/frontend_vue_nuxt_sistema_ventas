@@ -1,7 +1,7 @@
 <template>
 <AdminTemplate >
 	<div slot="body">
-		<!-- {{ user }} -->
+		<DashboardTemplate></DashboardTemplate>
 	</div>
 </AdminTemplate>
 </template>
