@@ -18,9 +18,6 @@ export default {
 		if(user==null){
 			this.$router.push('/auth/login');
 		}
-		this.$nextTick(() => {
-		// this.user = JSON.parse(user);
-		})
 	}
 }
 </script>
