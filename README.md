@@ -1,4 +1,4 @@
-# facturacion_frontend
+# frontend_vue_nuxt_sistema_ventas
 
 ## Build Setup
 
