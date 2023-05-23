@@ -32,7 +32,6 @@
 					<button class="btn btn-sm bg-gradient-danger ms-autojs-btn-next" @click.prevent="close()" type="button" title="Salir">Salir</button>
 					<button class="btn btn-sm bg-gradient-dark ms-autojs-btn-next" type="submit" title="Guardar">Guardar</button>
 				</div>
-				<!-- <button @click="imprimirTest()" class="btn bg-gradient-dark ms-autojs-btn-next" title="Imprimir">Imprimiendo prueba</button> -->
 			</div>
 		</form>
 	</el-dialog>
@@ -60,13 +59,8 @@ export default {
 	},
 	created() {
 		this.initForm();
-		// this.imprimirTest();
 	},
 	methods: {
-		async imprimirTest(){
-			let sucursal = this.formData;
-			const res = await this.$printer.$post(sucursal.impresora_url+"test",sucursal);
-		},
 		initForm(){
 			this.formData = {
 				codigo: null,

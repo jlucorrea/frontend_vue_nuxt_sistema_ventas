@@ -12,7 +12,7 @@
 									</p>
 									<h5 class="font-weight-bolder mb-0">
 										{{ dashboard.articulos }}
-										<span class="text-success text-sm font-weight-bolder">+55%</span>
+										<span class="text-success text-sm font-weight-bolder"></span>
 									</h5>
 								</div>
 							</div>
@@ -36,7 +36,7 @@
 									</p>
 									<h5 class="font-weight-bolder mb-0">
 										{{ dashboard.users }}
-										<span class="text-success text-sm font-weight-bolder">+3%</span>
+										<span class="text-success text-sm font-weight-bolder"></span>
 									</h5>
 								</div>
 							</div>
@@ -60,7 +60,7 @@
 									</p>
 									<h5 class="font-weight-bolder mb-0">
 										{{ Number(dashboard.compras).toFixed(2) }}
-										<span class="text-danger text-sm font-weight-bolder">-2%</span>
+										<span class="text-danger text-sm font-weight-bolder"></span>
 									</h5>
 								</div>
 							</div>
@@ -84,7 +84,7 @@
 									</p>
 									<h5 class="font-weight-bolder mb-0">
 										{{ Number(dashboard.ventas).toFixed(2) }}
-										<span class="text-success text-sm font-weight-bolder">+5%</span>
+										<span class="text-success text-sm font-weight-bolder"></span>
 									</h5>
 								</div>
 							</div>
