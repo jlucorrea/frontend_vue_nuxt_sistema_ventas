@@ -1,4 +1,30 @@
-# frontend_vue_nuxt_sistema_ventas
+# Sistema de Ventas - Frontend (Vue.js + Nuxt.js)
+Este repositorio contiene el frontend de un Sistema de Ventas desarrollado utilizando Vue.js y Nuxt.js. Proporciona una interfaz de usuario moderna y amigable para interactuar con la API de Laravel del backend correspondiente.
+
+# Instalación
+
+Sigue estos pasos para configurar y ejecutar el frontend:
+
+1. Clona este repositorio en tu máquina local:
+
+git clone https://github.com/jlucorrea/frontend_vue_nuxt_sistema_ventas.git
+
+2. Accede al directorio del proyecto:
+
+cd frontend_vue_nuxt_sistema_ventas
+
+3. Instalar las dependencias utilizando npm:
+
+npm install
+
+4. Ejecuta el siguiente comando para iniciar el frontend en modo de desarrollo:
+
+npm run dev
+
+
+# Antes de ejecutar la aplicación, es importante configurar la URL base de la API de Laravel en la que se basa este frontend.
+  
+Para realizar la configuración de la API, se recomienda seguir las instrucciones detalladas disponibles en el repositorio correspondiente: https://github.com/jlucorrea/api_laravel_sistema_ventas
 
 ## Build Setup
 
